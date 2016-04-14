@@ -1,4 +1,4 @@
-Quora API
+NHL API
 =========
 
 An (unofficial, read-only) API for nhl.com and other online resources related to the National Hockey League.
