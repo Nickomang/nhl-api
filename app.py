@@ -51,7 +51,7 @@ def get_game_ids(team, season, month):
 ####################################################################
 # ext_ids
 ####################################################################
-@app.route('/events/<fullyear>/<game_id>')
+@app.route('/events/<fullyear>/<game_id>', methods=["GET"])
 def get_ext_ids(game_id, fullyear):
 	url = "http://live.nhle.com/GameData/" + fullyear + "/" + game_id + "/gc/gcgm.jsonp"
 	if (not requests.get(url)):
@@ -99,7 +99,7 @@ def get_ext_ids(game_id, fullyear):
 ####################################################################
 # event descriptions
 ####################################################################
-@app.route('/events/<ext_id>')
+@app.route('/events/<ext_id>', methods=["GET"])
 def get_event_description(ext_id):
 	url = "http://video.nhl.com/videocenter/servlets/playlist?ids=" + ext_id + "&format=json"
 	return json.dumps(requests.get(url).json())
@@ -108,7 +108,7 @@ def get_event_description(ext_id):
 ####################################################################
 # highlight_urls
 ####################################################################
-@app.route('/videos/<ext_id>')
+@app.route('/videos/<ext_id>', methods=["GET"])
 def get_highlight_url():
 	highlight_desc = get_description_of_event(ext_id)
 	if p.match(highlight_desc):
