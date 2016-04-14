@@ -55,86 +55,16 @@ Example result:
  "2014030156", "2014030231", "2014030232", "2014030233", "2014030234", "2014010016", "2014010040", "2014010053", "2014010066"]}
 ```
 
-
-### GET: `/users/<user>`
-#### Example
-Example usage: `GET http://quora.christopher.su/users/Christopher-J-Su`
-
-Example result:
-```json
-{
-  "answers": 301, 
-  "blogs": null, 
-  "edits": 5576, 
-  "followers": 173, 
-  "following": 167, 
-  "name": "Christopher-J-Su", 
-  "posts": 6, 
-  "questions": 110, 
-  "topics": null, 
-  "username": "Christopher-J-Su"
-}
-```
-Note: due to recent Quora UI changes, the `blogs` and `topics` statistics are currently not working and will always return `null`.
-
-### GET: `/users/<user>/activity`
-Get the user's activity.
-#### Example
-Example usage: `GET http://quora.christopher.su/users/Christopher-J-Su/activity`
-
-Output (excerpt):
-```json
-{
-  "activity": [
-    {
-      "link": "http://www.quora.com/University-of-Washington/What-does-the-UW-CS-department-gain-from-barring-other-UW-students-from-taking-its-courses/answer/Christopher-J-Su", 
-      "published": "Tue, 25 Feb 2014 00:10:55 GMT", 
-      "summary": "<-- ... --->", 
-      "title": "What does the UW CS department gain from barring other UW students from taking its courses?"
-    }, 
-    {
-      "link": "http://www.quora.com/Can-applied-math-students-take-CSE-majors-only-courses/answer/Christopher-J-Su", 
-      "published": "Tue, 25 Feb 2014 00:04:33 GMT", 
-      "summary": "<div style=\"color: #666666;\">Christopher J. Su added this answer.</div><br /><div id=\"ld_ihbjvp_3370\"><div style=\"font-weight: bold; color: #000000;\"><div class=\"hover_menu hidden hover_menu_wide hover_menu_cards\" id=\"__w2_qIjTQfx_menu\" style=\"display: none;\"><div class=\"hover_menu_nub\"></div><div class=\"hover_menu_contents\" id=\"__w2_qIjTQfx_menu_contents\"> </div></div><a class=\"user\" href=\"http://www.quora.com/Christopher-J-Su\" id=\"__w2_qIjTQfx_link\">Christopher J. Su</a></div><br />I think you might need to fill out a CSE course petition to take a 300+-level CSE course as a non-major: <span class=\"qlink_container\"><a class=\"external_link\" href=\"https://www.cs.washington.edu/prospective_students/undergrad/petition/\" target=\"_blank\">Petition for Non-Majors</a></span>.<br /><br /><a href=\"http://www.quora.com/Can-applied-math-students-take-CSE-majors-only-courses\" style=\"font-weight: bold;\">See question on Quora</a></div>", 
-      "title": "Can applied math students take CSE majors only courses?"
-    }
-  ], 
-  "last_updated": "Thu, 24 Jul 2014 05:32:49 GMT", 
-  "username": "Christopher-J-Su"
-}
-```
-
-### GET: `/users/<user>/activity/answers`
-Get the user's latest answers.
-#### Example
-Example usage: `GET http://quora.christopher.su/users/Christopher-J-Su/activity/answers`
-
-Output (excerpt):
-```json
-{
-  "items": [
-    {
-      "id": "5:48afe1749959ac2b673b1094a13b6cb5#1418975956225507", 
-      "link": "http://www.quora.com/I-need-a-summer-internship-but-I-dont-want-to-apply-because-theres-a-90-chance-Ill-get-rejected-What-should-I-do/answer/Christopher-J-Su", 
-      "published": "Fri, 19 Dec 2014 07:59:16 GMT", 
-      "summary": "<div id=\"ld_ftujiv_1299\"><div style=\"font-weight: bold; color: #000000;\"><div class=\"hover_menu hidden hover_menu_cards hover_menu_wide hover_menu_cards\" id=\"__w2_lHemksQ_menu\" style=\"display: none;\"><div class=\"hover_menu_nub\"></div><div class=\"hover_menu_contents\" id=\"__w2_lHemksQ_menu_contents\"> </div></div><a class=\"user\" href=\"http://www.quora.com/Christopher-J-Su\" id=\"__w2_lHemksQ_link\">Christopher J. Su</a></div><br />Apply, interview, fail, repeat. Keep failing. Eventually, you&#039;ll notice you stop failing as much as you did before. Then, you&#039;ll suddenly start passing interviews. Then, you&#039;ll start getting offers.<br /><br />Don&#039;t get locked up in the mindset that you won&#039;t make it. If you never even try, you&#039;ll never get an internship. Having interviews scheduled will motivate you to study and prepare for them. Doing the interviews themselves is great practice.<br /><br /><a href=\"http://www.quora.com/I-need-a-summer-internship-but-I-dont-want-to-apply-because-theres-a-90-chance-Ill-get-rejected-What-should-I-do\" style=\"font-weight: bold;\">See question on Quora</a></div>", 
-      "title": "I need a summer internship, but I don't want to apply because there's a 90% chance I'll get rejected. What should I do?"
-    }
-  ]
-}
-```
-
 # Features
 ### Currently implemented
-* User statistics
-* User activity
-* Question statistics
-* Answer statistics
+* Game Schedules (game_ids)
+* Events         (event_ids)
+* Video Highlight URLs
 
 ### Todo
-* Detailed user information (followers, following, etc.; not just statistics)
-* Unit tests
-* Cache data with memcached
+* Player Images
+* Team Statistics
+* Player Statistics
 
 # Installation
 You will need [Python 2](https://www.python.org/download/). [pip](http://pip.readthedocs.org/en/latest/installing.html) is recommended for installing dependencies.
