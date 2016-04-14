@@ -1,4 +1,4 @@
-# NHL Api
+# NHL API
 
 
 
@@ -26,7 +26,7 @@ Player image
 
 
 
-## Api endpoints
+## API endpoints
 | Method        | Endpoint           				| Usage  		|
 | ------------- |:-------------:				| -------------:|
 | GET	        | /ids/{team}/{season>}/{month} | Returns a json object with game_ids from the given month. Pass 0 as month to get the whole year.
