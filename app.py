@@ -6,7 +6,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "Hello, World!"
+	wild = {'Upcoming Season Champions': 'Minnesota Wild'}
+	wild_json = json.dumps(wild)
+	return wild_json
 
 ####################################################################
 # game_ids
