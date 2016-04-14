@@ -29,5 +29,5 @@ Player image
 ## Api endpoints
 | Method        | Endpoint           				| Usage  		|
 | ------------- |:-------------:				| -------------:|
-| GET	        | /events/{season>}/{game_id}          | Returns a json object with all events from the game
-| GET	        | /highlights/{ext_id}         | Returns a json object with all events from the game
+| GET	        | /ids/{team}/{season>}/{month} | Returns a json object with game_ids from the given month. Pass 0 as month to get the whole year.
+| GET			| /events/{fullyear}/{month}    | Returns a json object with ext_ids from the game_id.
