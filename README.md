@@ -110,8 +110,24 @@ Result:
 http://e1.cdnak.neulion.com/nhl/vod/2014/11/20/280/2_280_min_phi_1415_h_discrete_phi341_save_1_1600.mp4?eid=677090&pid=677629&gid=3000&pt=1
 ```
 
+### Get: `/images/<name>/`
 
-# A comment to denote drunkness. 4 FUCKING O
+Gets a link to a 400x400 player headshot. To return a player's image, the name has to be formatted properly. Use the following rules:
+* Replace any spaces with a hyphen (-)
+* Replace any apostrophes (') or periods (.) with nothing ('')
+
+For example, Ryan O'Reilly becomes ryan-oreilly
+
+In some cases, such as Colorado's Erik Johnson, a player will have a common enough name that it is shared. In that case, you should append a `'-<id>'` to the player's name. This id can be found from the player's bio url on (tsn.ca)[http://tsn.ca]. Erik Johnson's id is 40755.
+
+#### Example
+Usage: `GET http://nhlapi.nickoman.me/images/john-scott`
+
+Result:
+```
+http://tsnimages.tsn.ca/ImageProvider/PlayerHeadshot?seoId=sidney-crosby
+```
+
 # Features
 ### Currently implemented
 * Game Schedules (game_ids)

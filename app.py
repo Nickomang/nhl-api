@@ -118,6 +118,15 @@ def get_highlight_url(ext_id):
 
 
 ####################################################################
+# player images
+####################################################################
+@app.route('/images/<name>', methods=["GET"])
+def get_player_image(name):
+	url = "http://tsnimages.tsn.ca/ImageProvider/PlayerHeadshot?seoId=" + name
+	return url
+
+
+####################################################################
 # Run app
 ####################################################################
 if __name__ == '__main__':
