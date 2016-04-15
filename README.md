@@ -39,9 +39,9 @@ Gets the game_ids for the games in a team's given month of a given season. Pass 
 game_ids from the whole year.
 
 #### Example
-Example usage: `GET http://nhl.nickoman.me/games/MIN/2015/0`
+Usage: `GET http://nhl.nickoman.me/games/MIN/2015/0`
 
-Example result:
+Result:
 ```json
 {"games": ["2014010087", "2014010101", "2014020014", "2014020029", "2014020062", "2014020074", "2014020097", "2014020114", "2014020122",
  "2014020124", "2014020145", "2014020162", "2014020179", "2014020189", "2014020205", "2014020220", "2014020238", "2014020249", "2014020261",
@@ -60,9 +60,9 @@ Example result:
 Gets the ext_ids for events from a game_id during a given fullyear (e.g 20142015).
 
 #### Example
-Example usage: `GET http://nhl.nickoman.me/events/MIN/2015/0`
+Usage: `GET http://nhl.nickoman.me/events/MIN/2015/0`
 
-Example result:
+Result:
 ```json
 {"events": ["2014020280-466-h", "2014020280-466-a", "2014020280-59-h", "2014020280-59-a", "2014020280-712-h", "2014020280-712-a", "2014020280-99-h",
 "2014020280-99-a", "2014020280-338-h", "2014020280-338-a", "2014020280-490-h", "2014020280-490-a", "2014020280-91-h", "2014020280-91-a",
@@ -81,9 +81,9 @@ Example result:
 Gets the details of an event associated with the given ext_id.
 
 #### Example
-Example usage: `Get http://nhl.nickoman.me/events/2014020280-341-h`
+Usage: `Get http://nhl.nickoman.me/events/2014020280-341-h`
 
-Example result:
+Result:
 ```json
 [{
 	"shareable": true, 
@@ -97,6 +97,18 @@ Example result:
 	"name":  "Darcy Kuemper Save on Brayden Schenn (15:31/2nd)", "bigImage": "www/thumbs/2014/11/20/677629_eb.jpg", "description": "Home broadcast -Minnesota Wild at Philadelphia Flyers - November 20, 2014"
 }]
 ```
+
+### GET: `/videos/<ext_id>`
+
+Gets the URL to the highlight video associated with the given ext_id.
+
+#### Example
+Usage: `GET http://nhl.nickoman.me/videos/2014020280-341-h`
+
+Result:
+```json
+
+
 
 
 

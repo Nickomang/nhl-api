@@ -110,12 +110,10 @@ def get_event_description(ext_id):
 # highlight_urls
 ####################################################################
 @app.route('/videos/<ext_id>', methods=["GET"])
-def get_highlight_url():
-	highlight_desc = get_description_of_event(ext_id)
-	if p.match(highlight_desc):
-		highlight_url = get_highlight_url(ext_id)
-		highlight_urls.append(highlight_url)
-	return highlight_url
+def get_highlight_url(ext_id):
+	url = "http://video.nhl.com/videocenter/servlets/playlist?ids=" + ext_id + "&format=json"
+	response = requests.get(url).json()
+	return response[0]['publishPoint']
 
 
 
