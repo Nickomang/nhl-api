@@ -106,7 +106,7 @@ Gets the URL to the highlight video associated with the given ext_id.
 Usage: `GET http://nhl.nickoman.me/videos/2014020280-341-h`
 
 Result:
-```json
+```
 http://e1.cdnak.neulion.com/nhl/vod/2014/11/20/280/2_280_min_phi_1415_h_discrete_phi341_save_1_1600.mp4?eid=677090&pid=677629&gid=3000&pt=1
 ```
 
