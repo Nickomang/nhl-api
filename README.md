@@ -20,7 +20,7 @@ Hopefully, this will allow developers to leverage the NHL's data without needing
 endpoint discovery.
 
 # API Usage
-### API Base URL: `http://nhl.nickoman.me`
+### API Base URL: `http://nhlapi.nickoman.me`
 
 ## Endpoints Summary
 * GET: [`/games/<user>`](#get-usersuser)
@@ -54,6 +54,20 @@ Example result:
  "2014021175", "2014021187", "2014021196", "2014021209", "2014021226", "2014030151", "2014030152", "2014030153", "2014030154", "2014030155",
  "2014030156", "2014030231", "2014030232", "2014030233", "2014030234", "2014010016", "2014010040", "2014010053", "2014010066"]}
 ```
+
+### GET: `/events/<fullyear>/<game_id>`
+
+Gets the ext_ids for events from a game_id during a given fullyear (e.g 20142015)
+
+#### Example
+Example usage: `GET http://nhl.nickoman.me/events/MIN/2015/0`
+
+
+
+
+
+
+
 
 # Features
 ### Currently implemented

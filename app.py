@@ -94,7 +94,8 @@ def get_ext_ids(game_id, fullyear):
 		if 'type' in event:
 			for feed in event['feeds']:
 				ext_ids.append(str(feed['extId']))
-	return json.dumps(ext_ids)
+	json_ext_ids = {"events": ext_ids}
+	return json.dumps(json_ext_ids)
 
 ####################################################################
 # event descriptions
