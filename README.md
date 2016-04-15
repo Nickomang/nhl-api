@@ -19,19 +19,18 @@ Hopefully, this will allow developers to leverage the NHL's data without needing
 [this guy from the hf boards](http://hfboards.hockeysfuture.com/showthread.php?t=1596119) for a bunch of network traffic analysis and 
 endpoint discovery.
 
+There are also some notable details about how this API is structured. Assigned to each game is a "game_id". The things that happen during a game (goals, saves, hits) are called events. Assigned to each event is an "ext_id". 
+
 # API Usage
 ### API Base URL: `http://nhlapi.nickoman.me`
 
 ## Endpoints Summary
-* GET: [`/games/<user>`](#get-usersuser)
-  * GET: [`/users/<user>/activity`](#get-usersuseractivity)
-    * GET: `/users/<user>/activity/answers`
-    * GET: `/users/<user>/activity/user_follows`
-    * GET: `/users/<user>/activity/want_answers`
-    * GET: `/users/<user>/activity/upvotes`
-    * GET: `/users/<user>/activity/review_requests`
-* GET: [`/questions/<question>`](#get-questionsquestion)
 
+* GET: [`/games/<team>/<season>/<month>`](#get-games)
+* GET: [`/events/<fullyear>/<game_id>`](#get-eventsfullyeargame_id)
+* GET: [`/events/<ext_id>`](#get-eventsext_id)
+* GET: [`/videos/<ext_id>`](#get-videos)
+* GET: [`/images/<name>`](#get-images)
 
 ### GET: `/games/<team>/<season>/<month>`
 
@@ -55,7 +54,7 @@ Result:
  "2014030156", "2014030231", "2014030232", "2014030233", "2014030234", "2014010016", "2014010040", "2014010053", "2014010066"]}
 ```
 
-### Get: `/events/<fullyear>/<game_id>`
+### GET: `/events/<fullyear>/<game_id>`
 
 Gets the ext_ids for events from a game_id during a given fullyear (e.g 20142015).
 
@@ -110,7 +109,7 @@ Result:
 http://e1.cdnak.neulion.com/nhl/vod/2014/11/20/280/2_280_min_phi_1415_h_discrete_phi341_save_1_1600.mp4?eid=677090&pid=677629&gid=3000&pt=1
 ```
 
-### Get: `/images/<name>/`
+### GET: `/images/<name>/`
 
 Gets a link to a 400x400 player headshot. To return a player's image, the name has to be formatted properly. Use the following rules:
 * Replace any spaces with a hyphen (-)
