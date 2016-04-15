@@ -110,6 +110,8 @@ Result:
 http://e1.cdnak.neulion.com/nhl/vod/2014/11/20/280/2_280_min_phi_1415_h_discrete_phi341_save_1_1600.mp4?eid=677090&pid=677629&gid=3000&pt=1
 ```
 
+
+# A comment to denote drunkness. 4 FUCKING O
 # Features
 ### Currently implemented
 * Game Schedules (game_ids)
