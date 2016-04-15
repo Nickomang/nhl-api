@@ -26,11 +26,11 @@ There are also some notable details about how this API is structured. Assigned t
 
 ## Endpoints Summary
 
-* GET: [`/games/<team>/<season>/<month>`](#get-games)
+* GET: [`/games/<team>/<season>/<month>`](#get-gamesteamseasonmonth)
 * GET: [`/events/<fullyear>/<game_id>`](#get-eventsfullyeargame_id)
 * GET: [`/events/<ext_id>`](#get-eventsext_id)
-* GET: [`/videos/<ext_id>`](#get-videos)
-* GET: [`/images/<name>`](#get-images)
+* GET: [`/videos/<ext_id>`](#get-videosext_id)
+* GET: [`/images/<name>`](#get-imagesname)
 
 ### GET: `/games/<team>/<season>/<month>`
 
