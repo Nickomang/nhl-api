@@ -99,7 +99,7 @@ Result:
 
 ### GET: `/videos/<ext_id>`
 
-Gets the URL to the highlight video associated with the given ext_id.
+Gets the URL to the highlight video associated with the given ext_id. You may notice this link is the same as the "publishPoint" in the above response. This is true, and you can also get it that way, but I felt highlight videos were important enough to deserve their own endpoint.
 
 #### Example
 Usage: `GET http://nhlapi.nickoman.me/videos/2014020280-341-h`
