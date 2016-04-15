@@ -39,7 +39,7 @@ Gets the game_ids for the games in a team's given month of a given season. Pass 
 game_ids from the whole year.
 
 #### Example
-Usage: `GET http://nhl.nickoman.me/games/MIN/2015/0`
+Usage: `GET http://nhlapi.nickoman.me/games/MIN/2015/0`
 
 Result:
 ```json
@@ -60,7 +60,7 @@ Result:
 Gets the ext_ids for events from a game_id during a given fullyear (e.g 20142015).
 
 #### Example
-Usage: `GET http://nhl.nickoman.me/events/MIN/2015/0`
+Usage: `GET http://nhlapi.nickoman.me/events/MIN/2015/0`
 
 Result:
 ```json
@@ -81,7 +81,7 @@ Result:
 Gets the details of an event associated with the given ext_id.
 
 #### Example
-Usage: `Get http://nhl.nickoman.me/events/2014020280-341-h`
+Usage: `Get http://nhlapi.nickoman.me/events/2014020280-341-h`
 
 Result:
 ```json
@@ -103,7 +103,7 @@ Result:
 Gets the URL to the highlight video associated with the given ext_id.
 
 #### Example
-Usage: `GET http://nhl.nickoman.me/videos/2014020280-341-h`
+Usage: `GET http://nhlapi.nickoman.me/videos/2014020280-341-h`
 
 Result:
 ```
