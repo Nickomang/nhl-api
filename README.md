@@ -85,11 +85,17 @@ Example usage: `Get http://nhl.nickoman.me/events/2014020280-341-h`
 
 Example result:
 ```json
-[{"shareable": true, "trackName": "Darcy Kuemper Save on Brayden Schenn (15:31/2nd)", "publishPoint": "http://e1.cdnak.neulion.com/nhl/
-vod/2014/11/20/280/2_280_min_phi_1415_h_discrete_phi341_save_1_1600.mp4?eid=677090&pid=677629&gid=3000&pt=1", "formats": "0", "releaseDate": 
-"2014-11-20T19:00:00.000", "image": "www/thumbs/2014/11/20/677629_es.jpg", "id": "2014020280-341-h", "runtime": "0:16", "duration": "16", "name": 
-"Darcy Kuemper Save on Brayden Schenn (15:31/2nd)", "bigImage": "www/thumbs/2014/11/20/677629_eb.jpg", "description": "Home broadcast - Minnesota 
-Wild at Philadelphia Flyers - November 20, 2014"}]
+[{
+	"shareable": true, 
+	"trackName": "Darcy Kuemper Save on Brayden Schenn (15:31/2nd)", 
+	"publishPoint": "http://e1.cdnak.neulion.com/nhl/vod/2014/11/20/280/2_280_min_phi_1415_h_discrete_phi341_save_1_1600.mp4?eid=677090&pid=677629gid=3000&pt=1", 
+	"formats": "0", "releaseDate": "2014-11-20T19:00:00.000",
+	"image": "www/thumbs/2014/11/20/677629_es.jpg",
+	"id": "2014020280-341-h",
+	"runtime": "0:16",
+	"duration": "16",
+	"name":  "Darcy Kuemper Save on Brayden Schenn (15:31/2nd)", "bigImage": "www/thumbs/2014/11/20/677629_eb.jpg", "description": "Home broadcast -Minnesota Wild at Philadelphia Flyers - November 20, 2014"
+}]
 ```
 
 
