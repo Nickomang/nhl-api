@@ -26,11 +26,14 @@ There are also some notable details about how this API is structured. Assigned t
 
 ## Endpoints Summary
 
-* GET: [`/games/<team>/<season>/<month>`](#get-gamesteamseasonmonth)
+* GET: [`/<team>/roster`](#get-teamroster)
+* GET: [`/<team>/games/<season>/<month>`](#get-teamgamesseasonmonth)
 * GET: [`/events/<fullyear>/<game_id>`](#get-eventsfullyeargame_id)
 * GET: [`/events/<ext_id>`](#get-eventsext_id)
 * GET: [`/videos/<ext_id>`](#get-videosext_id)
 * GET: [`/images/<name>`](#get-imagesname)
+* GET: [`/`]()
+
 
 ### GET: `/games/<team>/<season>/<month>`
 
@@ -132,9 +135,9 @@ http://tsnimages.tsn.ca/ImageProvider/PlayerHeadshot?seoId=sidney-crosby
 * Game Schedules (game_ids)
 * Events         (event_ids)
 * Video Highlight URLs
+* Player Images
 
 ### Todo
-* Player Images
 * Team Statistics
 * Player Statistics
 
