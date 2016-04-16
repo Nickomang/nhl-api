@@ -26,25 +26,49 @@ There are also some notable details about how this API is structured. Assigned t
 
 ## Endpoints Summary
 
+* Team
+	* GET: [`/<team>/roster`](#get-teamroster)
+	* GET: [`/<team>/stats/<season>/<form>`](#get-teamstats)
+	* GET: [`/<team>/games/<season>/<month>`](#get-teamgamesseasonmonth)
+* Events
+	* GET: [`/events/<season>/<game_id>`](#get-eventsseasongame_id)
+	* GET: [`/events/<ext_id>`](#get-eventsext_id)
+	* GET: [`/videos/<ext_id>`](#get-videosext_id)
+* Misc
+	* GET: [`/images/<name>`](#get-imagesname)
 
-* GET: [`/<team>/roster`](#get-teamroster)
-* GET: [`/<team>/stats`](#get-teamstats)
-* GET: [`/<team>/games/<season>/<month>`](#get-teamgamesseasonmonth)
 
-* GET: [`/events/<season>/<game_id>`](#get-eventsseasongame_id)
-* GET: [`/events/<ext_id>`](#get-eventsext_id)
-
-* GET: [`/videos/<ext_id>`](#get-videosext_id)
-* GET: [`/images/<name>`](#get-imagesname)
-
-
-### GET: `<team>/roster`
+### GET: `/<team>/roster`
 
 Gets the roster from the given team. Includes all sorts of details on the players that are not statistics.
 
-### GET: `<team>/stats`
+#### Example
+Usage: `GET http://nhlapi.nickoman.me/ANA/roster`
 
-Gets all of the statistics for the players from the given team. Skater and Goalie statlines are formatted as follows, respectively:
+Result:
+```json
+"timestamp":"Fri Apr 15 20:43:22 EDT 2016",
+"goalie":[
+	{
+		"position":"Goalie",
+		"id":8475883,
+		"twitterURL":"https://twitter.com/f_andersen30",
+		"weight":220,
+		"height":"6' 4\"",
+		"imageUrl":"http://3.cdn.nhle.com/photos/mugs/8475883.jpg",
+		"birthplace":"Herning, DNK",
+		"twitterHandle":"f_andersen30",
+		"age":26,
+		"name":"Frederik Andersen",
+		"birthdate":"October 02, 1989",
+		"number":31
+	},
+```
+
+
+### GET: `/<team>/stats/<season>/<form>`
+
+Gets all of the statistics for the players from the given team during the given season. Uses 'form' to denote either regular season (2) or playoffs (3). Skater and Goalie statlines are formatted as follows, respectively:
 
 ```
 #, POS, NAME, GP, G, A, P, +/-, PIM, S, TOI/G, PP, SH, GWG, OT
@@ -52,7 +76,41 @@ Gets all of the statistics for the players from the given team. Skater and Goali
 ```
 #, POS, NAME, GP, W, L, OT, GA, SA, Sv, SV%, GAA, SO, PIM, Min
 ```
+#### Example
+Usage: `GET http://nhlapi.nickoman.me/ANA/stats/20142015/2`
 
+Result (only partial due to length):
+```json
+
+"skaterHighlight":7,
+"timestamp":"Mon Jun 30 23:51:01 EDT 2014",
+"skaterData":[
+	{
+		"id":8470612,
+		"data":"15, C, R. Getzlaf, 77, 31, 56, 87, 28, 31, 204, 21:17, 5, 0, 7, 1"
+	},
+	{
+		"id":8470621,
+		"data":"10, R, C. Perry, 81, 43, 39, 82, 32, 65, 280, 19:28, 8, 0, 9, 1"
+	},
+	{
+		"id":8474009,
+		"data":"13, C, N. Bonino, 77, 22, 27, 49, 14, 22, 159, 16:13, 7, 0, 2, 1"
+	},
+	{
+		"id":8473618,
+		"data":"22, C, M. Perreault, 69, 18, 25, 43, 13, 36, 120, 13:52, 4, 0, 1, 1"
+	},
+	{
+		"id":8471699,
+		"data":"7, C, A. Cogliano, 82, 21, 21, 42, 13, 26, 157, 15:23, 0, 3, 5, 0"
+	},
+	{
+		"id":8475764,
+		"data":"4, D, C. Fowler, 70, 6, 30, 36, 15, 14, 100, 23:51, 4, 1, 2, 0"
+	},
+
+```
 
 ### GET: `/<team>/games/<season>/<month>`
 

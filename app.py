@@ -21,9 +21,9 @@ def get_roster(team):
 ####################################################################
 # team_stats
 ####################################################################
-@app.route('/<team>/stats')
-def get_player_stats(team):
-	url = "http://nhlwc.cdnak.neulion.com/fs1/nhl/league/playerstatsline/20132014/2/" + str(team).upper() + "/iphone/playerstatsline.json"
+@app.route('/<team>/stats/<season>/<form>')
+def get_player_stats(team, season, form):
+	url = "http://nhlwc.cdnak.neulion.com/fs1/nhl/league/playerstatsline/" + season + "/" + form + "/" + team + "/iphone/playerstatsline.json"
 	response = requests.get(url).json()
 	return json.dumps(response)
 
