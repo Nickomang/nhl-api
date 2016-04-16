@@ -26,22 +26,41 @@ There are also some notable details about how this API is structured. Assigned t
 
 ## Endpoints Summary
 
+
 * GET: [`/<team>/roster`](#get-teamroster)
+* GET: [`/<team>/stats`](#get-teamstats)
 * GET: [`/<team>/games/<season>/<month>`](#get-teamgamesseasonmonth)
+
 * GET: [`/events/<season>/<game_id>`](#get-eventsseasongame_id)
 * GET: [`/events/<ext_id>`](#get-eventsext_id)
+
 * GET: [`/videos/<ext_id>`](#get-videosext_id)
 * GET: [`/images/<name>`](#get-imagesname)
-* GET: [`/`]()
 
 
-### GET: `/games/<team>/<season>/<month>`
+### GET: `<team>/roster`
+
+Gets the roster from the given team. Includes all sorts of details on the players that are not statistics.
+
+### GET: `<team>/stats`
+
+Gets all of the statistics for the players from the given team. Skater and Goalie statlines are formatted as follows, respectively:
+
+```
+#, POS, NAME, GP, G, A, P, +/-, PIM, S, TOI/G, PP, SH, GWG, OT
+```
+```
+#, POS, NAME, GP, W, L, OT, GA, SA, Sv, SV%, GAA, SO, PIM, Min
+```
+
+
+### GET: `/<team>/games/<season>/<month>`
 
 Gets the game_ids for the games in a team's given month of a given season. Pass 0 as the month to get
 game_ids from the whole year.
 
 #### Example
-Usage: `GET http://nhlapi.nickoman.me/games/MIN/2015/0`
+Usage: `GET http://nhlapi.nickoman.me/MIN/games/20142015/0`
 
 Result:
 ```json
@@ -57,12 +76,12 @@ Result:
  "2014030156", "2014030231", "2014030232", "2014030233", "2014030234", "2014010016", "2014010040", "2014010053", "2014010066"]}
 ```
 
-### GET: `/events/<fullyear>/<game_id>`
+### GET: `/events/<season>/<game_id>`
 
 Gets the ext_ids for events from a game_id during a given season.
 
 #### Example
-Usage: `GET http://nhlapi.nickoman.me/events/MIN/2015/0`
+Usage: `GET http://nhlapi.nickoman.me/events/20142015/2014010087`
 
 Result:
 ```json

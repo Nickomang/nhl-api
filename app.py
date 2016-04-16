@@ -7,17 +7,14 @@ app = Flask(__name__)
 @app.route('/')
 def index():
 	wild = {'Upcoming Season Champions': 'Minnesota Wild'}
-	wild_json = json.dumps(wild)
-	return wild_json
-
-# DO SEAASON THING
+	return json.dumps(wild)
 
 ####################################################################
 # team_stats
 ####################################################################
 @app.route('/<team>/roster')
 def get_roster(team):
-	url = "http://nhlwc.cdnak.neulion.com/fs1/nhl/league/playerstatsline/" + season + "/2/" + str(team).upper() + "/iphone/playerstatsline.json"
+	url = "http://nhlwc.cdnak.neulion.com/fs1/nhl/league/teamroster/" + str(team).upper() +"/iphone/clubroster.json"
 	response = requests.get(url).json()
 	return json.dumps(response)
 
@@ -154,12 +151,3 @@ def get_player_image(name):
 ####################################################################
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
-
-
-
-
-
-
