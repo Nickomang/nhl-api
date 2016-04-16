@@ -28,7 +28,7 @@ There are also some notable details about how this API is structured. Assigned t
 
 * GET: [`/<team>/roster`](#get-teamroster)
 * GET: [`/<team>/games/<season>/<month>`](#get-teamgamesseasonmonth)
-* GET: [`/events/<fullyear>/<game_id>`](#get-eventsfullyeargame_id)
+* GET: [`/events/<season>/<game_id>`](#get-eventsseasongame_id)
 * GET: [`/events/<ext_id>`](#get-eventsext_id)
 * GET: [`/videos/<ext_id>`](#get-videosext_id)
 * GET: [`/images/<name>`](#get-imagesname)
@@ -59,7 +59,7 @@ Result:
 
 ### GET: `/events/<fullyear>/<game_id>`
 
-Gets the ext_ids for events from a game_id during a given fullyear (e.g 20142015).
+Gets the ext_ids for events from a game_id during a given season.
 
 #### Example
 Usage: `GET http://nhlapi.nickoman.me/events/MIN/2015/0`

@@ -74,9 +74,9 @@ def get_game_ids(team, season, month):
 ####################################################################
 # ext_ids
 ####################################################################
-@app.route('/events/<fullyear>/<game_id>', methods=["GET"])
-def get_ext_ids(game_id, fullyear):
-	url = "http://live.nhle.com/GameData/" + fullyear + "/" + game_id + "/gc/gcgm.jsonp"
+@app.route('/events/<season>/<game_id>', methods=["GET"])
+def get_ext_ids(game_id, season):
+	url = "http://live.nhle.com/GameData/" + season + "/" + game_id + "/gc/gcgm.jsonp"
 	if (not requests.get(url)):
 		print "NHL fucked up"
 		return json.dumps([])
