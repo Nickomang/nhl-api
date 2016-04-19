@@ -30,6 +30,7 @@ def get_player_stats(team, season, form):
 ####################################################################
 # game_ids
 ####################################################################
+# ISSUE with fullyear for 20152016
 @app.route('/<team>/games/<int:season>/<int:month>', methods=["GET"])
 def get_game_ids(team, season, month):
 	game_ids = []
@@ -38,17 +39,19 @@ def get_game_ids(team, season, month):
 	if month == 0:
 		for month in (10,11,12,1,2,3,4,5,6,7,8,9):
 			if (month > 7):
-				season = str(season)[4:]
+				shortseason = str(season)[:-4]
 			else:
-				season = str(season)[:-4]
-			url = "http://nhlwc.cdnak.neulion.com/fs1/nhl/league/clubschedule/" + team + "/" + season + "/" + str(month).zfill(2) + "/iphone/clubschedule.json"
+				shortseason = str(season)[4:]
+			url = "http://nhlwc.cdnak.neulion.com/fs1/nhl/league/clubschedule/" + team + "/" + shortseason + "/" + str(month).zfill(2) + "/iphone/clubschedule.json"
 			
 			try:
 				response = requests.get(url).json()
 				for game in response['games']:
-					game_ids.append(str(game['gameId']))
+					if game['gameId']:
+						game_ids.append(str(game['gameId']))
 			except ValueError:
-				print "nhl fucked up"	
+				print "nhl fucked up"
+
 	# ANY MONTH 
 	else:
 		if (month > 7):
@@ -56,7 +59,6 @@ def get_game_ids(team, season, month):
 		else:
 			season = str(season)[4:]
 		url = "http://nhlwc.cdnak.neulion.com/fs1/nhl/league/clubschedule/" + team + "/" + season + "/" + str(month).zfill(2) + "/iphone/clubschedule.json"
-		print url
 		try:
 			response = requests.get(url).json()
 			for game in response['games']:
@@ -64,7 +66,7 @@ def get_game_ids(team, season, month):
 					game_ids.append(str(game['gameId']))
 		except ValueError:
 			print "nhl fucked up"
-
+			
 	json_game_ids = {"games": game_ids}
 	return json.dumps(json_game_ids)
 
