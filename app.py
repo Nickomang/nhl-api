@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, make_response
 import requests
 import json
 
@@ -147,6 +147,47 @@ def get_player_image(name):
 	url = "http://tsnimages.tsn.ca/ImageProvider/PlayerHeadshot?seoId=" + name
 	return url
 
+####################################################################
+# team svgs
+####################################################################
+@app.route('/<team>/logo', methods=["GET"])
+def get_team_logo(team):
+	paths = {
+		'BOS': 6,
+		'BUF': 7,
+		'DET': 17,
+		'FLO': 13,
+		'MTL': 8,
+		'OTT': 9,
+		'TBL': 14,
+		'TOR': 10,
+		'CAR': 12,
+		'CBJ': 29,
+		'NJD': 1,
+		'NYI': 2,
+		'NYR': 3,
+		'PHI': 4,
+		'PIT': 5,
+		'WSH': 15,
+		'CHI': 16,
+		'COL': 21,
+		'DAL': 25,
+		'MIN': 30,
+		'NSH': 18,
+		'STL': 19,
+		'WPG': 52,
+		'ANA': 24,
+		'AZN': 53,
+		'CGY': 20,
+		'EDM': 22,
+		'LAK': 26,
+		'SJS': 28,
+		'VAN': 23
+	}
+	path = paths[team]
+	url = "http://www-league.nhlstatic.com/builds/site-core/a46bb6bad4f43e92f7fc3d3ddfc2c0b26a717cae_1461274874/images/team/logo/current/" + str(path) + "_dark.svg"
+	response = requests.get(url)
+	return response.content
 
 ####################################################################
 # Run app
