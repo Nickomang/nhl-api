@@ -30,6 +30,7 @@ There are also some notable details about how this API is structured. Assigned t
 	* GET: [`/<team>/roster`](#get-teamroster)
 	* GET: [`/<team>/stats/<season>/<form>`](#get-teamstats)
 	* GET: [`/<team>/games/<season>/<month>`](#get-teamgamesseasonmonth)
+	* GET: [`/<team>/logo/`](#get-teamlogo)
 * Events
 	* GET: [`/events/<season>/<game_id>`](#get-eventsseasongame_id)
 	* GET: [`/events/<ext_id>`](#get-eventsext_id)
@@ -132,6 +133,18 @@ Result:
  "2014021016", "2014021026", "2014021045", "2014021057", "2014021066", "2014021085", "2014021090", "2014021112", "2014021125", "2014021159",
  "2014021175", "2014021187", "2014021196", "2014021209", "2014021226", "2014030151", "2014030152", "2014030153", "2014030154", "2014030155",
  "2014030156", "2014030231", "2014030232", "2014030233", "2014030234", "2014010016", "2014010040", "2014010053", "2014010066"]}
+```
+
+### GET: `/<team>/logo`
+
+Gets the logo for the given team as a very nice .svg
+
+#### Example
+Usage: `GET http://nhlapi.nickoman.me/ANA/logo`
+
+Result:
+```
+A nice .svg
 ```
 
 ### GET: `/events/<season>/<game_id>`
