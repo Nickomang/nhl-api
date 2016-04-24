@@ -21,6 +21,8 @@ endpoint discovery.
 
 There are also some notable details about how this API is structured. Assigned to each game is a "game_id". The things that happen during a game (goals, saves, hits) are called events. Assigned to each event is an "ext_id". 
 
+Finally, it's important to know the range for which the API can function. To my understanding, due to the MLB's takeover of NHL media, the system that I'm shoehorning onto is no longer in use as of February, 2016. As far as I can tell, it began use at the start of the 2012-2013 season. Any date in between those two times should work. I'm working on trying to find out what the NHL uses currently to serve it's media, but that is proving significantly more difficult. I may wind up employing a screen-scraping option, which, while much slower, would allow for completeness.
+
 # API Usage
 ### API Base URL: `http://nhlapi.nickoman.me`
 
