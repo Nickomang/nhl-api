@@ -228,10 +228,11 @@ http://tsnimages.tsn.ca/ImageProvider/PlayerHeadshot?seoId=sidney-crosby
 * Events         (event_ids)
 * Video Highlight URLs
 * Player Images
+* Team logos (svg)
+* Player statistics
 
 ### Todo
-* Team Statistics
-* Player Statistics
+* Team Statistics/Standings
 
 # Installation
 You will need [Python 2](https://www.python.org/download/). [pip](http://pip.readthedocs.org/en/latest/installing.html) is recommended for installing dependencies.
