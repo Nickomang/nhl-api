@@ -10,6 +10,15 @@ def index():
 	wild = {'Upcoming Season Champions': 'Minnesota Wild'}
 	return json.dumps(wild)
 
+# New stuff
+# nhl.com/gamecenter/<game_id>
+# new_game_id = <game_id> - first four (year)
+# GS = game summary
+
+# http://media.sny.tv/sny/2015/10/06/sny_519968983_1m.mp4
+# 23.200.219.120
+# http://md-akc.med.nhl.com/mp4/nhl/2016/04/25/822f98ff-8065-454b-8d85-cd692db8daa4/1461548688943/asset_1800k.mp4
+
 ####################################################################
 # team_stats
 ####################################################################
