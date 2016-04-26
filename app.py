@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, make_response
 import requests
 import json
+import xml.etree.ElementTree as ET
 
 app = Flask(__name__)
 
@@ -189,6 +190,37 @@ def get_team_logo(team):
 	response = requests.get(url)
 	return response.content
 
+####################################################################
+# team stats/standing
+####################################################################
+@app.route('/<team>/stats', methods=["GET"])
+def get_team_stats(team):
+	
+	url = "http://app.cgy.nhl.yinzcam.com/V2/Stats/Standings"
+	response = requests.get(url)
+	root = ET.fromstring(response.content)
+	
+	#TODO: error handling (what happens if I provide a nonexistant team?
+	#TODO: generic error handling (what happens if the XML structure changes or the URL dies?)
+	standingNode = root.find("Conference/StatsSection/Standing[@TriCode='" + team + "']")
+	statsGroup1 = standingNode.find("StatsGroup[@Order='1']")
+	statsGroup2 = standingNode.find("StatsGroup[@Order='2']")
+		
+	return json.dumps({
+		"LeagueRank": standingNode.get("LeagueRank"),
+		"ConferenceRank": standingNode.get("ConfRank"),
+		"DivisionRank": standingNode.get("DivRank"),
+		"GamesPlayed": statsGroup1.get("Stat0"),
+		"Wins": statsGroup1.get("Stat1"),
+		"Losses": statsGroup1.get("Stat2"),
+		"OvertimeLosses": statsGroup1.get("Stat3"),
+		"Points": statsGroup1.get("Stat4"),
+		"GoalsFor": statsGroup2.get("Stat0"),
+		"GoalsAgainst": statsGroup2.get("Stat1"),
+		"LastTen": statsGroup2.get("Stat2"),
+		"Streak": statsGroup2.get("Stat3")
+	})	
+	
 ####################################################################
 # Run app
 ####################################################################
