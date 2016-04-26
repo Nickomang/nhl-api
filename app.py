@@ -187,7 +187,7 @@ def get_team_logo(team):
 		'STL': 19,
 		'WPG': 52,
 		'ANA': 24,
-		'AZN': 53,
+		'ARI': 53,
 		'CGY': 20,
 		'EDM': 22,
 		'LAK': 26,
