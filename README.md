@@ -30,6 +30,7 @@ Finally, it's important to know the range for which the API can function. To my 
 
 * Team
 	* GET: [`/<team>/roster`](#get-teamroster)
+	* GET: [`/<team>/stats`] (#get-teamstats)
 	* GET: [`/<team>/stats/<season>/<form>`](#get-teamstats)
 	* GET: [`/<team>/games/<season>/<month>`](#get-teamgamesseasonmonth)
 	* GET: [`/<team>/logo/`](#get-teamlogo)
@@ -66,6 +67,31 @@ Result:
 		"birthdate":"October 02, 1989",
 		"number":31
 	},
+```
+
+### GET: `/<team>/stats`
+
+Gets the stats and standing for the given team.
+
+#### Example
+Usage: `GET http://nhlapi.nickoman.me/ANA/stats`
+
+Result:
+```json
+{
+  "ConferenceRank": "4",
+  "DivisionRank": "1",
+  "Wins": "46",
+  "Losses": "25",
+  "Points": "103",
+  "GoalsAgainst": "192",
+  "GamesPlayed": "82",
+  "Streak": "W2",
+  "LastTen": "6-2-2",
+  "OvertimeLosses": "11",
+  "LeagueRank": "6",
+  "GoalsFor": "218"
+}
 ```
 
 
