@@ -135,8 +135,10 @@ def get_ext_ids(game_id, season):
 @app.route('/events/<ext_id>', methods=["GET"])
 def get_event_description(ext_id):
 	url = "http://video.nhl.com/videocenter/servlets/playlist?ids=" + ext_id + "&format=json"
-	return json.dumps(requests.get(url).json())
-
+	response = requests.get(url).text
+	trimmed_response = response[9:-1] # Should be 9:-1, but if problems arise do it using REGEX
+	json_response = json.loads(trimmed_response)
+	return json.dumps(json_response)
 
 ####################################################################
 # highlight_urls
