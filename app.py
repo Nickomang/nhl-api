@@ -28,6 +28,7 @@ def get_roster(team):
 	response = requests.get(url).json()
 	return json.dumps(response)
 
+
 ####################################################################
 # team_stats
 ####################################################################
@@ -36,6 +37,7 @@ def get_player_stats(team, season, form):
 	url = "http://nhlwc.cdnak.neulion.com/fs1/nhl/league/playerstatsline/" + season + "/" + form + "/" + team + "/iphone/playerstatsline.json"
 	response = requests.get(url).json()
 	return json.dumps(response)
+
 
 ####################################################################
 # game_ids
@@ -79,6 +81,7 @@ def get_game_ids(team, season, month):
 			
 	json_game_ids = {"games": game_ids}
 	return json.dumps(json_game_ids)
+
 
 ####################################################################
 # ext_ids
@@ -129,6 +132,7 @@ def get_ext_ids(game_id, season):
 	json_ext_ids = {"events": ext_ids}
 	return json.dumps(json_ext_ids)
 
+
 ####################################################################
 # event descriptions
 ####################################################################
@@ -140,6 +144,7 @@ def get_event_description(ext_id):
 	json_response = json.loads(trimmed_response)
 	return json.dumps(json_response)
 
+
 ####################################################################
 # highlight_urls
 ####################################################################
@@ -150,7 +155,6 @@ def get_highlight_url(ext_id):
 	return response[0]['publishPoint']
 
 
-
 ####################################################################
 # player images
 ####################################################################
@@ -158,6 +162,7 @@ def get_highlight_url(ext_id):
 def get_player_image(name):
 	url = "http://tsnimages.tsn.ca/ImageProvider/PlayerHeadshot?seoId=" + name
 	return url
+
 
 ####################################################################
 # team svgs
@@ -201,6 +206,7 @@ def get_team_logo(team):
 	response = requests.get(url)
 	return response.content
 
+
 ####################################################################
 # team stats/standings
 ####################################################################
@@ -236,6 +242,7 @@ def get_team_stats(team):
 		"LastTen": statsGroup2.get("Stat2"),
 		"Streak": statsGroup2.get("Stat3")
 	})	
+
 	
 ####################################################################
 # Run app
