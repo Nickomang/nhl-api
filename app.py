@@ -214,18 +214,20 @@ def get_team_logo(team):
 def get_team_stats(team):
 	
 	url = "http://app.cgy.nhl.yinzcam.com/V2/Stats/Standings"
-	response = requests.get(url)
-	print "breakpoint"
-	root = ET.fromstring(response.content)
-	print root
-	
-	#TODO: error handling (what happens if I provide a nonexistant team?
-	#TODO: generic error handling (what happens if the XML structure changes or the URL dies?)
+
+	try:
+		response = requests.get(url)
+		root = ET.fromstring(response.content)
+	except ET.ParseError:
+		print "xml structure changed or bad url specified"
+		return json.dumps({})
+
 	try:
 		standingNode = root.find("Conference/StatsSection/Standing[@TriCode='" + team + "']")
 		statsGroup1 = standingNode.find("StatsGroup[@Order='1']")
 		statsGroup2 = standingNode.find("StatsGroup[@Order='2']")
 	except AttributeError:
+		print ("xml structure screwed up/nonexistant team specified")
 		return json.dumps({})
 		
 	return json.dumps({
