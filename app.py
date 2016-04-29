@@ -34,8 +34,11 @@ def get_roster(team):
 ####################################################################
 @app.route('/<team>/stats/<season>/<form>')
 def get_player_stats(team, season, form):
-	url = "http://nhlwc.cdnak.neulion.com/fs1/nhl/league/playerstatsline/" + season + "/" + form + "/" + team + "/iphone/playerstatsline.json"
-	response = requests.get(url).json()
+	try:
+		url = "http://nhlwc.cdnak.neulion.com/fs1/nhl/league/playerstatsline/" + season + "/" + form + "/" + team + "/iphone/playerstatsline.json"
+		response = requests.get(url).json()
+	except ValueError:
+		return json.dumps({})
 	return json.dumps(response)
 
 
