@@ -105,7 +105,6 @@ Gets all of the statistics for the players from the given team during the given 
 ```
 #, POS, NAME, GP, W, L, OT, GA, SA, Sv, SV%, GAA, SO, PIM, Min
 
-
 ```
 #### Example
 Usage: `GET http://nhlapi.nickoman.me/ANA/stats/20142015/2`
