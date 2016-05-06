@@ -97,13 +97,15 @@ Result:
 
 ### GET: `/<team>/stats/<season>/<form>`
 
-Gets all of the statistics for the players from the given team during the given season. Uses 'form' to denote either regular season (2) or playoffs (3). Skater and Goalie statlines are formatted as follows, respectively:
+Gets all of the statistics for the players from the given team during the given season. Uses 'form' to denote either regular season (2) or playoffs (3). Skater and Goalie statlines have been parsed and are presented in a orderly format. The data's origin was formatted as such, respectively:
 
 ```
 #, POS, NAME, GP, G, A, P, +/-, PIM, S, TOI/G, PP, SH, GWG, OT
 ```
 ```
 #, POS, NAME, GP, W, L, OT, GA, SA, Sv, SV%, GAA, SO, PIM, Min
+
+
 ```
 #### Example
 Usage: `GET http://nhlapi.nickoman.me/ANA/stats/20142015/2`
@@ -111,33 +113,27 @@ Usage: `GET http://nhlapi.nickoman.me/ANA/stats/20142015/2`
 Result (only partial due to length):
 ```json
 
-"skaterHighlight":7,
-"timestamp":"Mon Jun 30 23:51:01 EDT 2014",
 "skaterData":[
-	{
-		"id":8470612,
-		"data":"15, C, R. Getzlaf, 77, 31, 56, 87, 28, 31, 204, 21:17, 5, 0, 7, 1"
+{
+	"data":{
+		"TimeOnIce":"20:05",
+		"PlusMinus":"15",
+		"PlayerName":"R. Getzlaf",
+		"Points":"70",
+		"Shots":"191",
+		"Position":"C",
+		"GamesPlayed":"77",
+		"PenaltyMinutes":"62",
+		"ShorthandedPoints":"0",
+		"Number":"15",
+		"Assists":"45",
+		"Goals":"25",
+		"OvertimeGoals":"2",
+		"PowerPlayPoints":"3",
+		"GameWinningGoals":"6"
 	},
-	{
-		"id":8470621,
-		"data":"10, R, C. Perry, 81, 43, 39, 82, 32, 65, 280, 19:28, 8, 0, 9, 1"
-	},
-	{
-		"id":8474009,
-		"data":"13, C, N. Bonino, 77, 22, 27, 49, 14, 22, 159, 16:13, 7, 0, 2, 1"
-	},
-	{
-		"id":8473618,
-		"data":"22, C, M. Perreault, 69, 18, 25, 43, 13, 36, 120, 13:52, 4, 0, 1, 1"
-	},
-	{
-		"id":8471699,
-		"data":"7, C, A. Cogliano, 82, 21, 21, 42, 13, 26, 157, 15:23, 0, 3, 5, 0"
-	},
-	{
-		"id":8475764,
-		"data":"4, D, C. Fowler, 70, 6, 30, 36, 15, 14, 100, 23:51, 4, 1, 2, 0"
-	},
+	"id":8470612
+},
 
 ```
 

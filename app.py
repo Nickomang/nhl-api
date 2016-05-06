@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, make_response
 import requests
+import re
 import json
 import xml.etree.ElementTree as ET
 
@@ -37,6 +38,49 @@ def get_player_stats(team, season, form):
 	try:
 		url = "http://nhlwc.cdnak.neulion.com/fs1/nhl/league/playerstatsline/" + season + "/" + form + "/" + team + "/iphone/playerstatsline.json"
 		response = requests.get(url).json()
+		pattern = re.compile("^\s+|\s*,\s*|\s+$")
+		for skater in response['skaterData']:
+			line = skater['data']
+			data = [x for x in pattern.split(line) if x]
+			skater['data'] = {
+				"Number": data[0],
+				"Position": data[1],
+				"PlayerName": data[2],
+				"GamesPlayed": data[3],
+				"Goals": data[4],
+				"Assists": data[5],
+				"Points": data[6],
+				"PlusMinus": data[7],
+				"PenaltyMinutes": data[8],
+				"Shots": data[9],
+				"TimeOnIce": data[10],
+				"PowerPlayPoints": data[11],
+				"ShorthandedPoints": data[12],
+				"GameWinningGoals": data[13],
+				"OvertimeGoals": data[14]
+			}
+			# #, POS, NAME, GP, G, A, P, +/-, PIM, S, TOI/G, PP, SH, GWG, OT
+		for goalie in response['goalieData']:
+			line = goalie['data']
+			data = [x for x in pattern.split(line) if x]
+			goalie['data'] = {
+				"Number": data[0],
+				"Position": data[1],
+				"PlayerName": data[2],
+				"GamesPlayed": data[3],
+				"Wins": data[4],
+				"Losses": data[5],
+				"OvertimeLosses": data[6],
+				"GoalsAgainst": data[7],
+				"ShotsAgainst": data[8],
+				"Saves": data[9],
+				"SavePCT": data[10],
+				"GoalsAgainstAverage": data[11],
+				"Shutouts": data[12],
+				"PenaltyMinutes": data[13],
+				"Minutes": data[14]
+			}
+			# POS, NAME, GP, W, L, OT, GA, SA, Sv, SV%, GAA, SO, PIM, Min
 	except ValueError:
 		return json.dumps({})
 	return json.dumps(response)
