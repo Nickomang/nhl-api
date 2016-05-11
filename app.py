@@ -109,7 +109,7 @@ def get_game_ids(team, season, month):
 					if game['gameId']:
 						game_ids.append(str(game['gameId']))
 			except ValueError:
-				print "nhl fucked up"
+				print "NHL fucked up their data"
 
 	# ANY MONTH 
 	else:
@@ -124,7 +124,7 @@ def get_game_ids(team, season, month):
 				if game['gameId']:
 					game_ids.append(str(game['gameId']))
 		except ValueError:
-			print "nhl fucked up"
+			print "NHL fucked up their data"
 			
 	json_game_ids = {"games": game_ids}
 	return json.dumps(json_game_ids)
@@ -137,7 +137,7 @@ def get_game_ids(team, season, month):
 def get_ext_ids(game_id, season):
 	url = "http://live.nhle.com/GameData/" + season + "/" + game_id + "/gc/gcgm.jsonp"
 	if (not requests.get(url)):
-		print "NHL fucked up"
+		print "NHL fucked up their data"
 		return json.dumps([])
 	response = requests.get(url).text
 
@@ -147,17 +147,17 @@ def get_ext_ids(game_id, season):
 	try:
 		json_response = json.loads(trimmed_response)
 	except ValueError:
-		print "NHL fucked up again"
+		print "NHL fucked up their data even worse"
 		trimmed_response = response[10:-2]
 		try:
 			json_response = json.loads(trimmed_response)
 		except ValueError:
-			print "THEY FUCKED UP A THIRD TIME"
+			print "WOW, THEY FUCKED UP A THIRD TIME"
 			trimmed_response = response[10:-3]
 			try:
 				json_response = json.loads(trimmed_response)
 			except ValueError:
-				print "Fuck bettman"
+				print "Empty event, good one Bettman"
 				return json.dumps([])
 	
 	json_response = json.loads(trimmed_response)
