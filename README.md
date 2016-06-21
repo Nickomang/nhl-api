@@ -24,7 +24,7 @@ There are also some notable details about how this API is structured. Assigned t
 Finally, it's important to know the range for which the API can function. To my understanding, due to the MLB's takeover of NHL media, the system that I'm shoehorning onto is no longer in use as of February, 2016. As far as I can tell, it began use at the start of the 2012-2013 season. Any date in between those two times should work. I'm working on trying to find out what the NHL uses currently to serve it's media, but that is proving significantly more difficult. I may wind up employing a screen-scraping option, which, while much slower, would allow for completeness.
 
 # API Usage
-### API Base URL: `http://nhlapi.nickoman.me`
+### API Base URL: `http://nhl.nickoman.me`
 
 ## Endpoints Summary
 
@@ -47,7 +47,7 @@ Finally, it's important to know the range for which the API can function. To my 
 Gets the roster from the given team. Includes all sorts of details on the players that are not statistics.
 
 #### Example
-Usage: `GET http://nhlapi.nickoman.me/ANA/roster`
+Usage: `GET http://nhl.nickoman.me/ANA/roster`
 
 Result:
 ```json
@@ -74,7 +74,7 @@ Result:
 Gets the stats and standing for the given team.
 
 #### Example
-Usage: `GET http://nhlapi.nickoman.me/ANA/stats`
+Usage: `GET http://nhl.nickoman.me/ANA/stats`
 
 Result:
 ```json
@@ -107,7 +107,7 @@ Gets all of the statistics for the players from the given team during the given 
 
 ```
 #### Example
-Usage: `GET http://nhlapi.nickoman.me/ANA/stats/20142015/2`
+Usage: `GET http://nhl.nickoman.me/ANA/stats/20142015/2`
 
 Result (only partial due to length):
 ```json
@@ -142,7 +142,7 @@ Gets the game_ids for the games in a team's given month of a given season. Pass 
 game_ids from the whole year.
 
 #### Example
-Usage: `GET http://nhlapi.nickoman.me/MIN/games/20142015/0`
+Usage: `GET http://nhl.nickoman.me/MIN/games/20142015/0`
 
 Result:
 ```json
@@ -163,7 +163,7 @@ Result:
 Gets the logo for the given team as a very nice .svg
 
 #### Example
-Usage: `GET http://nhlapi.nickoman.me/ANA/logo`
+Usage: `GET http://nhl.nickoman.me/ANA/logo`
 
 Result:
 ```
@@ -175,7 +175,7 @@ A nice .svg
 Gets the ext_ids for events from a game_id during a given season.
 
 #### Example
-Usage: `GET http://nhlapi.nickoman.me/events/20142015/2014010087`
+Usage: `GET http://nhl.nickoman.me/events/20142015/2014010087`
 
 Result:
 ```json
@@ -218,7 +218,7 @@ Result:
 Gets the URL to the highlight video associated with the given ext_id. You may notice this link is the same as the "publishPoint" in the above response. This is true, and you can also get it that way, but I felt highlight videos were important enough to deserve their own endpoint.
 
 #### Example
-Usage: `GET http://nhlapi.nickoman.me/videos/2014020280-341-h`
+Usage: `GET http://nhl.nickoman.me/videos/2014020280-341-h`
 
 Result:
 ```
@@ -236,7 +236,7 @@ For example, Ryan O'Reilly becomes ryan-oreilly
 In some cases, such as Colorado's Erik Johnson, a player will have a common enough name that it is shared. In that case, you should append a `'-<id>'` to the player's name. This id can be found from the player's bio url on (tsn.ca)[http://tsn.ca]. Erik Johnson's id is 40755.
 
 #### Example
-Usage: `GET http://nhlapi.nickoman.me/images/john-scott`
+Usage: `GET http://nhl.nickoman.me/images/john-scott`
 
 Result:
 ```
