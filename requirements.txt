@@ -19,7 +19,7 @@ requests==2.9.1
 rtv==1.5
 singledispatch==3.4.0.3
 six==1.10.0
-tornado==4.2.1
+tornado==6.3.2
 update-checker==0.11
 virtualenv==14.0.6
 Werkzeug==0.11.5
